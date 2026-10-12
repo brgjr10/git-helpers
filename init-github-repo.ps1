@@ -11,9 +11,28 @@
 #>
 
 param(
+    [string]$Path = "",
     [switch]$Private,
     [string]$Description = ""
 )
+
+# Target the folder containing the git-helpers folder (the project), not the
+# git-helpers folder itself. Override with -Path.
+if (-not $Path) {
+    if ($PSScriptRoot) {
+        $Path = Split-Path -Parent $PSScriptRoot
+    } else {
+        $Path = (Get-Location).Path
+    }
+}
+
+if (-not (Test-Path -LiteralPath $Path)) {
+    Write-Error "Target directory not found: $Path"
+    exit 1
+}
+
+Set-Location -LiteralPath $Path
+Write-Host "Working on: $((Get-Location).Path)" -ForegroundColor Cyan
 
 # Get the current folder name
 $folderName = Split-Path -Leaf (Get-Location).Path
