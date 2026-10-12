@@ -3,6 +3,8 @@
 Two PowerShell helper scripts for everyday git + GitHub workflows. Copy the whole
 `git-helpers` folder into any project folder and run it from there.
 
+<img width="1408" height="768" alt="image_d90a2bf7" src="https://github.com/user-attachments/assets/46de530c-9964-4e38-a281-031145aded95" />
+
 ## Requirements
 
 - Windows + PowerShell 5.1+
